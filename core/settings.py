@@ -20,16 +20,16 @@ TRAIN_FRACTION = 0.9  # first 90% of the text trains the model, last 10% tests i
 
 # ---- Model shape (how big the "brain" is) --------------------------------
 CONTEXT_LENGTH = 64   # how many characters the model can look back at (NanoGPT: block_size)
-LAYER_COUNT = 4       # how many Transformer blocks are stacked (n_layer)
+LAYER_COUNT = 10       # how many Transformer blocks are stacked (n_layer)
 HEAD_COUNT = 4        # attention heads per block (n_head)
-EMBEDDING_SIZE = 128  # how many numbers describe each character inside the model (n_embd)
+EMBEDDING_SIZE = 192  # how many numbers describe each character inside the model (n_embd)
 DROPOUT = 0.0         # randomly switch off neurons while training; 0 = off (small model, short run)
 USE_BIAS = False      # NanoGPT default: no bias terms in Linear/LayerNorm layers
 
 # ---- Training (how the "brain" learns; everything runs on the CPU) -------
 RANDOM_SEED = 1337          # same seed -> same random choices -> repeatable results
 BATCH_SIZE = 12             # how many 64-character snippets are learned from at once
-MAX_STEPS = 2000            # how many learning steps to run in total
+MAX_STEPS = 10000            # how many learning steps to run in total
 LEARNING_RATE = 1e-3        # how big each weight adjustment is at its largest
 MIN_LEARNING_RATE = 1e-4    # the smallest adjustment size, reached at the end of training
 WARMUP_STEPS = 100          # start with tiny adjustments, grow to LEARNING_RATE over these steps
